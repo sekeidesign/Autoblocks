@@ -1,0 +1,13 @@
+{
+  "name": "Autobase",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/pggonni/Autobase.git",
+  "author": "Pg Gonni <59372630+pggonni@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^1.0.6",
+    "morgan": "^1.10.0"
+  }
+}

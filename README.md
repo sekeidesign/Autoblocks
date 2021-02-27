@@ -1,2 +1,0 @@
-# Autobase
- Notion database automations
