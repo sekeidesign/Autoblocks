@@ -9,7 +9,7 @@ const app = express();
 // Config
 const PORT = 3000;
 const HOST = "localhost";
-const API_SERVICE_URL = "https://jsonplaceholder.typicode.com";
+const API_SERVICE_URL = "https://api.notion.com/v1";
 
 // Log incoming requests
 app.use(morgan('dev'));
@@ -36,4 +36,12 @@ app.use('/json_placeholder', createProxyMiddleware({
     pathRewrite: {
         [`^/json_placeholder`]: '',
     }
-}))
+}));
+
+// Start the Proxy
+app.listen(PORT, HOST, () => {
+    console.log(`Starting Proxy at ${HOST}:${PORT}`);
+});
+
+//Test command for querying the Chores database 
+//curl -X POST -H "Authorization: Bearer secret_xOLs7UclNIojYcjgJVPfco5zMciCRny5a30FNofTGxK" -H "Content-Type: application/json" localhost:3000/json_placeholder/databases/11af47c3d89c4afd9000518e7ff90d03/query
