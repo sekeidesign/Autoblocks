@@ -1,6 +1,7 @@
 // Add the necessary imports
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 // Create Express Server
@@ -13,6 +14,14 @@ const API_SERVICE_URL = "https://api.notion.com/v1";
 
 // Log incoming requests
 app.use(morgan('dev'));
+
+// Use cors lib to hopefull solve CORS issues
+app.use(cors());
+// Config cors to allow all origins
+const corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  }
 
 //Info GET endpoint
 app.get('/info', (req, res, next) => {

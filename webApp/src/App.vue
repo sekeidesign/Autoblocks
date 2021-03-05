@@ -14,6 +14,38 @@ export default {
 </script>
 
 <style>
+/* --------- Colour Variables --------- */
+
+:root{
+  --blue-600: rgba(46, 170, 220, 1);
+  --blue-500: rgba(6, 156, 205, 1);
+  --blue-400: rgba(0, 145, 190, 1);
+}
+
+/* --------- Styles --------- */
+
+.btn-primary {
+  height: 32px;
+  padding: 0px 12px;
+  box-shadow: 0px 1px 2px rgba(15, 15, 15, 0.1), inset 0px 0px 1px rgba(15, 15, 15, 0.5);
+  border-radius: 3px;
+  text-align: center;
+  background-color: var(--blue-600);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background-color: var(--blue-500);
+}
+.btn-primary:active {
+  background-color: var(--blue-400);
+}
+
 /* --------- CSS Reset --------- */
 
 /* Box sizing rules */
@@ -102,35 +134,4 @@ select {
   -moz-osx-font-smoothing: grayscale;
   color: #37352F;
 }
-
-/* --------- Colour Variables --------- */
-
-:root{
-  --blue-600: rgba(46, 170, 220, 1);
-  --blue-500: rgba(6, 156, 205, 1);
-  --blue-400: rgba(0, 145, 190, 1);
-}
-
-.btn-primary {
-  height: 32px;
-  padding: 0px 12px;
-  box-shadow: 0px 1px 2px rgba(15, 15, 15, 0.1), inset 0px 0px 1px rgba(15, 15, 15, 0.5);
-  border-radius: 3px;
-  text-align: center;
-  background-color: var(--blue-600);
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  font-size: 14px;
-  cursor: pointer;
-}
-.btn-primary:hover {
-  background-color: var(--blue-500);
-}
-.btn-primary:active {
-  background-color: var(--blue-400);
-}
-
 </style>
