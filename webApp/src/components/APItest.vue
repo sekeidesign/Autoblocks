@@ -20,6 +20,10 @@ export default {
                 },
                 method: "POST"
             })
+            .then(response => console.log(response.json()))
+            .catch((error) => {
+                console.error('Error:', error);
+            });
         },
     },
 }
