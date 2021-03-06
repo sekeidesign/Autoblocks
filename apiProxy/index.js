@@ -28,6 +28,20 @@ app.get('/info', (req, res, next) => {
     res.send("This is a proxy service");
 });
 
+app.get('/purge', (req, res, next) => {
+        fetch("http://localhost:3000/json_placeholder/databases/11af47c3d89c4afd9000518e7ff90d03/query", {
+            headers: {
+                Authorization: "Bearer secret_xOLs7UclNIojYcjgJVPfco5zMciCRny5a30FNofTGxK",
+                "Content-Type": "application/json"
+            },
+            method: "POST"
+        })
+        .then(response => console.log(response.json()))
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+})
+
 //Auth
     // Returns a 403 (Forbidden) if the Authorization Header is missing
 app.use('', (req,res,next) => {

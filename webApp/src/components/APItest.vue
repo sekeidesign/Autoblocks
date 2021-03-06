@@ -12,7 +12,7 @@
 export default {
     name: "APItest",
     methods: {
-        apiTest: function () {
+        apiTest: () => {
             fetch("http://localhost:3000/json_placeholder/databases/11af47c3d89c4afd9000518e7ff90d03/query", {
                 headers: {
                     Authorization: "Bearer secret_xOLs7UclNIojYcjgJVPfco5zMciCRny5a30FNofTGxK",
@@ -20,7 +20,8 @@ export default {
                 },
                 method: "POST"
             })
-            .then(response => console.log(response.json()))
+            .then(response => response.json())
+            .then(data => data.results.forEach(page => console.log(page)))
             .catch((error) => {
                 console.error('Error:', error);
             });
