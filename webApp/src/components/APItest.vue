@@ -13,6 +13,9 @@ export default {
     name: "APItest",
     methods: {
         apiTest: () => {
+            let checkTitle = (obj) => {
+                obj.properties.Name.title[0].text.content.indexOf("Copy of");
+            }
             fetch("http://localhost:3000/json_placeholder/databases/11af47c3d89c4afd9000518e7ff90d03/query", {
                 headers: {
                     Authorization: "Bearer secret_xOLs7UclNIojYcjgJVPfco5zMciCRny5a30FNofTGxK",
@@ -21,7 +24,7 @@ export default {
                 method: "POST"
             })
             .then(response => response.json())
-            .then(data => data.results.forEach(page => console.log(page)))
+            .then(data => data.results.forEach(page => console.log(checkTitle(page))))
             .catch((error) => {
                 console.error('Error:', error);
             });
