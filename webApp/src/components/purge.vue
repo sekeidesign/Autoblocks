@@ -56,6 +56,7 @@ export default {
     .test-card {
         padding: 40px 56px;
         border-radius: 3px;
+        max-width: 500px;
         display: flex;
         flex-direction: column;
         justify-content: center;
