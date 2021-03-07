@@ -1,21 +1,18 @@
 <template>
     <div class="wrap">
         <div class="test-card">
-            <h1>Test me out, baby!</h1>
-            <p>Check me out, try the thing. <br> I’m a test to see if you suck at dev (spoilers, you do)</p>
-            <button @click="apiTest" class="btn-primary">Make an API call</button>
+            <h1>Purge "Copy of"</h1>
+            <p>Get rid of that pesky "Copy of" in front of your duplicated pages in one fell swoop.</p>
+            <button @click="purge" class="btn-primary">Purge Database</button>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: "APItest",
+    name: "Purge",
     methods: {
-        apiTest: () => {
-            let checkTitle = (obj) => {
-                obj.properties.Name.title[0].text.content.indexOf("Copy of");
-            }
+        purge: () => {
             fetch("http://localhost:3000/json_placeholder/databases/11af47c3d89c4afd9000518e7ff90d03/query", {
                 headers: {
                     Authorization: "Bearer secret_xOLs7UclNIojYcjgJVPfco5zMciCRny5a30FNofTGxK",
@@ -24,7 +21,21 @@ export default {
                 method: "POST"
             })
             .then(response => response.json())
-            .then(data => data.results.forEach(page => console.log(checkTitle(page))))
+            .then(data => {
+                let results = data.results;
+                results.forEach(page => {
+                    let title = page.properties.Name.title[0].text.content;
+                    let id = page.id;
+                    if(title.indexOf("Copy of") !== 0) {
+                        return 
+                    } else {
+                        console.log(id)
+                        console.log("Original title:", title)
+                        title = title.replace("Copy of ", "");
+                        console.log("Purged title:", title);
+                    }
+                });
+            })
             .catch((error) => {
                 console.error('Error:', error);
             });

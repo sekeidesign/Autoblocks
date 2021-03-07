@@ -1,14 +1,14 @@
 <template>
-  <APItest/>
+  <Purge/>
 </template>
 
 <script>
-import APItest from "./components/APItest.vue";
+import Purge from "./components/purge.vue";
 
 export default {
   name: "App",
   components: {
-    APItest
+    Purge
   },
 };
 </script>
