@@ -39,7 +39,10 @@ export default {
                             },
                             method: "PATCH"
                         })
-                        .then(console.log("Purged"))
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data.results)
+                        })
                         .catch((e) => {
                             console.error("Error:", e)
                         })
