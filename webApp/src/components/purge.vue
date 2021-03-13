@@ -30,7 +30,6 @@ export default {
                         return 
                     } else {
                         title = title.replace("Copy of ", "");
-                        
                         let body = `{ "properties": { "Name": { "title": [ { "text": { "content": "${title}" } } ] } }`
                         fetch(`http://localhost:3000/json_placeholder/pages/${id}`, {
                             body: body,
