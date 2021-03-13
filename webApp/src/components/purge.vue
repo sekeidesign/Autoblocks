@@ -29,15 +29,26 @@ export default {
                     if(title.indexOf("Copy of") !== 0) {
                         return 
                     } else {
-                        console.log(id)
-                        console.log("Original title:", title)
                         title = title.replace("Copy of ", "");
-                        console.log("Purged title:", title);
+                        
+                        let body = `{ "properties": { "Name": { "title": [ { "text": { "content": "${title}" } } ] } }`
+                        fetch(`http://localhost:3000/json_placeholder/pages/${id}`, {
+                            body: body,
+                            headers: {
+                                Authorization: "Bearer secret_xOLs7UclNIojYcjgJVPfco5zMciCRny5a30FNofTGxK",
+                                "Content-Type": "application/json"
+                            },
+                            method: "PATCH"
+                        })
+                        .then(console.log("Purged"))
+                        .catch((e) => {
+                            console.error("Error:", e)
+                        })
                     }
                 });
             })
-            .catch((error) => {
-                console.error('Error:', error);
+            .catch((e) => {
+                console.error('Error:', e);
             });
         },
     },
