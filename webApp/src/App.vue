@@ -45,6 +45,26 @@ export default {
 .btn-primary:active {
   background-color: var(--blue-400);
 }
+.full-screen-wrap {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 16px;
+}
+.card-standard {
+    padding: 40px 56px;
+    border-radius: 3px;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    box-shadow: 0px 4px 12px rgba(55, 53, 47, 0.1);
+    text-align: center;
+}
 
 /* --------- CSS Reset --------- */
 
